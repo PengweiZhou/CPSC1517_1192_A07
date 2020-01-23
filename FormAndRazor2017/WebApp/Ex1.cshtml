@@ -1,14 +1,42 @@
 ﻿@{
     Layout = "_Layout.cshtml";
+    var myname = Request.Form["dataentry"];
+    var thebutton = Request.Form["theButton"];
 }
 @section banner{
     <h1>"Exercise 1"</h1>
-} 
+}
+@if (IsPost)
+{
+    if (thebutton.Equals("pressme"))
+    {
+        //the Press Me button was pressed
+        if (string.IsNullOrEmpty(myname))
+        {
+            <p>You should enter your name.</p>
+        }
+        else
+        {
+            <p>Well: Hello there @myname</p>
+        }
+    }
+    else
+    {
+        //the Clear button was pressed
+        myname = "";
+        <p>Use pressed the clear button</p>
+    }
+}
+else
+{
+    <p>this is the first time on this page.</p>
+}
 
 <div>
     <form action="/" method="post">
         <label>Enter Name</label>
-        <input type="text" id="Text1" />
-        <input type="submit" id="Submit1" value="Submit" />
+        <input type="text" id="Text1" value="@myname" />
+        <input type="submit" name="theButton" value="Submit" />
+        <input type="submit" name="theButton" value="Clear" />
     </form>
 </div>

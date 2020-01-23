@@ -1,0 +1,35 @@
+﻿@{
+    Page.Title = "Hello";
+    Layout = "~/_Layout.cshtml";
+}
+@section head{
+<link href="~/Content/myStyleSheet.css" rel="stylesheet" />}
+@section banner{
+    <h1>Excersice01: Forms and Control</h1>}
+    <div>
+        <p>this is some text on the page</p>
+    </div>
+@section footer{
+    <p>&copy CPSC1517, Nait Today's date is @DateTime.Today.ToLongDateString().</p> }
+
+
+
+
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Enter Your name</label><br />
+            <input id="Text1" type="text" />
+        </div>
+        <div class="col-md-6">
+            <label>Your Choice</label><br />
+            <input id="Checkbox1" type="checkbox" />Item1<br />
+            <input id="Checkbox2" type="checkbox" />Item2<br />
+            <input id="Checkbox3" type="checkbox" />Item3<br />
+        </div>
+    </div>
+    <div>
+        <input class="btn btn-primary" id="Submit1" type="submit" value="Submit" />
+        <input class="btn" id="Button1" type="button" value="Reset" />
+    </div>
+</form>
